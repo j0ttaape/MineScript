@@ -15,6 +15,11 @@ let zumbi = {
     vida: 125,
     dano: 0
 }
+
+let esqueleto = {
+    vida: 215,
+    dano: 0
+}
     //inicio do Jogo
 for(let cont = 1; cont != 0; cont ++){
 console.log(`\nBem-vindo você está no MineScript.
@@ -58,13 +63,22 @@ console.log(`O seu primeiro inimigo é o zumbie.
 
        console.log(`O zumbi também te bateu e te retirou ${zumbi.dano} de vida, então agora você tem ${steve.vida} de vida\n`)
 
-        if (steve.vida == 0){
+        if (steve.vida <= 0){
         console.log('Você morreu. Estou te encaminhando de volta para o inicio do jogo');
         i = -1
     }
 
-        else if(zumbi.vida == 0){
+        else if(zumbi.vida <= 0){
             console.log(`Voce derrotou o zumbi com sucesso. Está de parabéns`);
+
+            for(let i = 1; i != 0; i ++){
+                console.log(`Parabéns, você derrotou o primeiro inimigo!
+                    Seu novo desafio será derrotar o Esqueleto.
+                    `)
+            }
+            i=-1
+
+            
         }
     }
 
@@ -90,3 +104,4 @@ else if(opcao == 2){
     cont = -1;
 }
 }
+
