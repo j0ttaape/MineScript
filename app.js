@@ -1,3 +1,6 @@
+import prompt from "prompt-sync"
+let ler = prompt();
+
 let steve={
     vida: 75,
     armadura: 0,
@@ -11,3 +14,8 @@ let zumbi = {
 }
     
 
+console.log(`\nBem-vindo você está no MineScript.
+    \nSua missão é derrotar os mobs e enfrentar o boss final.
+    \nBoa sorte, pois você vai precisar!`)
+
+console.log(`O seu `)
