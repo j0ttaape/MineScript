@@ -21,19 +21,33 @@ export function danoZoombie(zumbi,steve){
 
 export function danoSteve(steve){
     if(steve.espada == 0){
-        steve.dano = Math.floor(Math.random()*15)
+        steve.dano = Math.floor(Math.random()*20)
     }
     
   else if(steve.espada == 1){
-        steve.dano = Math.floor(Math.random()*30)
+        steve.dano = Math.floor(Math.random()*35)
     }
     
   else if(steve.espada == 2){
-        steve.dano = Math.floor(Math.random()*45)
+        steve.dano = Math.floor(Math.random()*50)
     }
     
   else if(steve.espada == 3){
-        steve.dano = Math.floor(Math.random()*60)
+        steve.dano = Math.floor(Math.random()*75)
     }
     return steve.dano
 }
+
+
+export async function contar(limite) {
+    for (let contador = 0; contador <= limite; contador++) {
+      await sleep(500);
+    }
+  }
+  
+  
+  function sleep(milisegundos) {
+    return new Promise((ok, nok) => {
+      setTimeout(ok, milisegundos);
+    })
+  }
