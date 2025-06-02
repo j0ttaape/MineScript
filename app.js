@@ -6,7 +6,9 @@ let steve={
     vida: 75,
     armadura: 0,
     arma: 0,
-    dano: 0
+    dano: 0,
+    itens: [] 
+
 }
 
 let zumbi = {
@@ -56,11 +58,22 @@ console.log(`O seu primeiro inimigo é o zumbie.
 
        console.log(`O zumbi também te bateu e te retirou ${zumbi.dano} de vida, então agora você tem ${steve.vida} de vida\n`)
 
+        if (steve.vida == 0){
+        console.log('Você morreu. Estou te encaminhando de volta para o inicio do jogo');
+        i = -1
     }
+
+        else if(zumbi.vida == 0){
+            console.log(`Voce derrotou o zumbi com sucesso. Está de parabéns`);
+        }
+    }
+
+
+
 
     else if(escolha == 2){
 
-        console.log('Você se esquiva, mas como ainda nâo tem nunhum item, terá que voltar para a batalha\n ')
+        console.log('Você se esquiva, mas como ainda nâo tem nunhum item, terá que voltar para a batalha\n ');
     }
 
     else if(escolha == 3){
@@ -68,16 +81,9 @@ console.log(`O seu primeiro inimigo é o zumbie.
         i = -1
     }
 
-    else if (steve.vida == 0){
-        console.log('Você morreu. Estou te encaminhando de volta para o inicio do jogo');
-        i = -1
 
     }
-    else {
-        console.log('Opção inexistente');
-
-    }
-    }
+    
 }
 
 else if(opcao == 2){
