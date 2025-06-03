@@ -19,21 +19,35 @@ export function danoZoombie(zumbi,steve){
     return zumbi.dano
 }
 
-//function Creeper 
+//-- function Creeper  --
 export function danoCreeper(creeper,steve){
 
   if(steve.armadura == 0){
-      creeper.dano = Math.floor(Math.random()*30)
+    if(steve.escudo == 1){
+      creeper.dano = Math.floor(Math.random()*( 30 /2))
+    }
+   
+    creeper.dano = Math.floor(Math.random()*30)
   }
 
   else if(steve.armadura == 1){
 
+    if(steve.escudo == 1){
+      creeper.dano = Math.floor(Math.random()*( 20 /2))
+    }
       creeper.dano = Math.floor(Math.random()*20)
+
+      
   }
 
   else if(steve.armadura == 2){
 
+    if(steve.escudo == 1){
+      creeper.dano = Math.floor(Math.random()*( 10 /2))
+    }
+      
       creeper.dano = Math.floor(Math.random()*10)
+      
   }
   return creeper.dano
 }

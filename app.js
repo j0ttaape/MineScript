@@ -7,12 +7,19 @@ let steve={
     armadura: 0,
     espada: 0,
     dano: 0,
+    escudo: 0,
     itens: [] 
 
 }
 
 let zumbi = {
     vida: 125,
+    dano: 0
+
+}
+
+let creeper = {
+    vida: 150,
     dano: 0
 
 }
