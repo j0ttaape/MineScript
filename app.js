@@ -194,8 +194,9 @@ await funcoes.contar(5);
 
             console.log(sit);
             await funcoes.contar(1);
+            cont2 = -1;
 }
-    opcao = 3
+    opcao = 2
         }
     }
 
