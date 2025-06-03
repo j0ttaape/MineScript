@@ -243,7 +243,10 @@ else if(opcao == 2){
 }
 
 else if(opcao == 3){
-    console.log('O seu próximo inimigo é o Esqueleto')
+    console.log('Após essa intensa batalha contra um zumbi, que foi o seu primeiro inimigo, você segue viagem em busca de um enderman  ');
+    console.log();
+
+    
     cont = -1;
 }
 
