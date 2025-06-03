@@ -13,7 +13,7 @@ let steve={
 }
 
 let zumbi = {
-    vida: 1,
+    vida: 125,
     dano: 0
 
 }
@@ -44,7 +44,7 @@ for(let cont = 1; cont != 0; cont ++){
 console.log(`O seu primeiro inimigo é o zumbi.
     \nOs atributos do zumbie são:
     \n Vida: ${zumbi.vida}
-    Dano: entre 1 a 10
+    Dano: entre 0 a 10
     \n
     `)
 
@@ -52,7 +52,7 @@ console.log(`O seu primeiro inimigo é o zumbi.
     console.log(`Já você... começa sem nada, apenas com sua espada de madeira e sua armadura de couro.
     Os atributos do seu personagem são:
     Vida: ${steve.vida}
-    Dano: entre  e 20
+    Dano: entre 0 e 20
     Armadura: de couro   
 `
 )}
