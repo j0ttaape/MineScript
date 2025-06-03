@@ -13,7 +13,7 @@ let steve={
 }
 
 let zumbi = {
-    vida: 125,
+    vida: 1,
     dano: 0
 
 }
@@ -52,7 +52,7 @@ console.log(`O seu primeiro inimigo é o zumbi.
     console.log(`Já você... começa sem nada, apenas com sua espada de madeira e sua armadura de couro.
     Os atributos do seu personagem são:
     Vida: ${steve.vida}
-    Dano: entre 1 e 15
+    Dano: entre  e 20
     Armadura: de couro   
 `
 )}
@@ -163,10 +163,10 @@ await funcoes.contar(5);
             console.log(sit);
             await funcoes.contar(1);
 
-            console.log('Agora faça a sua segunda escolha');
+            console.log('Agora faça a sua segunda escolha:');
+            let r2 = Number(ler());
 
             for(let cont2 = 1; cont2 != 0;cont2 ++){
-            let r2 = Number(ler());
 
             if(r2 == r1){
                 sit = 'Esse item já foi escolhido, escolha outro.'
@@ -213,12 +213,68 @@ await funcoes.contar(5);
                 steve.itens.push('Escudo');
             }
 
-            console.log(sit);
             await funcoes.contar(1);
-            cont2 = -1;
+            console.log(sit);
+        }
+        let cont3 = 1;
+        
+        console.log('Faça a sua última escolha:')
+        let r3 = Number(ler());
+            for( cont3 = 1; cont3 != 0;cont3 ++){
+
+            if(r3 == r1|| r3 == r2){
+
+                sit = 'Esse item já foi escolhido, escolha outro.'
+            }
+
+             else if(r3 == 1){
+                sit = 'Parabéns A Sua última escolha escolhas foi a armadura de ferro';
+                steve.armadura = 1;
+
+                cont3 = -1
+            }
+
+            
+            else if(r3 == 2){
+                sit = 'Parabéns a Sua última escolha  foi a espada de ferro';
+                steve.espada = 2;
+
+                cont3 = -1
+            }
+            
+            else if(r3 == 3){
+                sit = 'Parabéns a sua última escolha foi a Cura Total. \nSua vida foi reestaurada';
+                steve.vida = 75;
+
+                cont3 = -1
+            }
+            
+            else if(r3 == 4){
+                sit = 'Parabéns a sua última escolha foi a Poção de Vida. \n\n****POÇÃO ADICIONADA AO INVENTÁRIO****';
+                steve.itens.push('Poção de Vida');
+
+                cont3 = -1
+            }
+            
+            else if(r3 == 5){
+                sit = 'Parabéns a sua última escolha foi a Golden Apple. \n\n****GOLDEN APPLE AO INVENTÁRIO****';
+                steve.itens.push('Golden Apple');
+
+                cont3 = -1
+            }
+            
+            else if(r3== 6){
+                sit = 'Parabéns a sua última escolha foi o Escudo. \n\n****ESCUDO ADICIONADO AO INVENTÁRIO****';
+                steve.itens.push('Escudo');
+            }
+
+            console.log(sit);
+
+            await funcoes.contar(1);
+            cont3 = -1;
             i = -1;
-           
-}
+        }
+
     opcao = 3
     op = 1 
         }
@@ -252,9 +308,10 @@ else if(opcao == 2){
 else if(opcao == 3){
     console.log('Após essa intensa batalha contra um zumbi, que foi o seu primeiro inimigo, você segue viagem em busca de um enderman  ');
     console.log();
-
+    
     
     cont = -1;
 }
 
 }
+
