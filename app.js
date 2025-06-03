@@ -16,6 +16,9 @@ let zumbi = {
     dano: 0
 
 }
+
+let opcao= 0
+let op = 0;
 //inicio do Jogo
 console.log(`\nBem-vindo você está no MineScript.
     \nSua missão é derrotar os mobs e enfrentar o boss final.
@@ -23,9 +26,10 @@ console.log(`\nBem-vindo você está no MineScript.
     
 for(let cont = 1; cont != 0; cont ++){
 
+    if (op == 0){
     await funcoes.contar(1);
     console.log('Você deseja: \n 1. Continar \n 2.Desistir');
-    let opcao = Number(ler());
+     opcao = Number(ler());
 
     await funcoes.contar(0);
     if(opcao == 1){
@@ -44,7 +48,7 @@ console.log(`O seu primeiro inimigo é o zumbi.
     Dano: entre 1 e 15
     Armadura: de couro   
 `
-)
+)}
 
 await funcoes.contar(5);
     //Batalha Com o Zumbi
@@ -149,7 +153,7 @@ await funcoes.contar(5);
 
             console.log('Agora faça a sua segunda escolha');
 
-            for(let cont2 = 1; cont2 != 0;cont ++){
+            for(let cont2 = 1; cont2 != 0;cont2 ++){
             let r2 = Number(ler());
 
             if(r2 == r1){
@@ -195,10 +199,14 @@ await funcoes.contar(5);
             console.log(sit);
             await funcoes.contar(1);
             cont2 = -1;
+            i = -1;
+           
 }
-    opcao = 2
+    opcao = 3
+    op = 1 
         }
     }
+    
 
 
 
@@ -226,6 +234,7 @@ else if(opcao == 2){
 
 else if(opcao == 3){
     console.log('O seu próximo inimigo é o Esqueleto')
+    cont = -1;
 }
 
 }
