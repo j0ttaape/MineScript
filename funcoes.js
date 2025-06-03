@@ -19,6 +19,27 @@ export function danoZoombie(zumbi,steve){
     return zumbi.dano
 }
 
+//function Creeper 
+export function danoCreeper(creeper,steve){
+
+  if(steve.armadura == 0){
+      creeper.dano = Math.floor(Math.random()*30)
+  }
+
+  else if(steve.armadura == 1){
+
+      creeper.dano = Math.floor(Math.random()*20)
+  }
+
+  else if(steve.armadura == 2){
+
+      creeper.dano = Math.floor(Math.random()*10)
+  }
+  return creeper.dano
+}
+
+
+
 export function danoSteve(steve){
     if(steve.espada == 0){
         steve.dano = Math.floor(Math.random()*20)
@@ -51,3 +72,5 @@ export async function contar(limite) {
       setTimeout(ok, milisegundos);
     })
   }
+
+  
