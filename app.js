@@ -114,7 +114,7 @@ await funcoes.contar(5);
 
             await funcoes.contar(2);
 
-            console.log('Agora você pode escolher 2 entre essas 5 opções: \n 1. Armadura de Ferro \n 2. Espada de Ferro \n 3. Cura Total \n 4. Poção de Vida \n 5. Golden Apple');
+            console.log('Agora você pode escolher 3 entre essas 6 opções: \n 1. Armadura de Ferro \n 2. Espada de Ferro \n 3. Cura Total \n 4. Poção de Vida \n 5. Golden Apple\n 6. Escudo');
 
             let r1 = Number(ler());
             console.log();
@@ -144,8 +144,13 @@ await funcoes.contar(5);
             }
             
             else if(r1 == 5){
-                sit = 'Parabéns Uma das suas escolhas foi a Golden Apple. \n\n****GOLDEN APPLE AO INVENTÁRIO****';
+                sit = 'Parabéns Uma das suas escolhas foi a Golden Apple. \n\n****GOLDEN APPLE ADICIONADA AO INVENTÁRIO****';
                 steve.itens.push('Golden Apple');
+            }
+
+            else if(r1 == 6){
+                sit = 'Parabéns Uma das suas escolhas foi o Escudo. \n\n****ESCUDO ADICIONADO AO INVENTÁRIO****';
+                steve.itens.push('Escudo');
             }
 
             console.log(sit);
@@ -194,6 +199,11 @@ await funcoes.contar(5);
                 steve.itens.push('Golden Apple');
 
                 cont2 = -1
+            }
+            
+            else if(r2 == 6){
+                sit = 'Parabéns a sua segunda escolhas foi o Escudo. \n\n****ESCUDO ADICIONADO AO INVENTÁRIO****';
+                steve.itens.push('Escudo');
             }
 
             console.log(sit);
