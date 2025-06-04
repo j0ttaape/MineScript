@@ -2,20 +2,26 @@ import prompt from "prompt-sync"
 import * as funcoes from "./funcoes.js";
 let ler = prompt();
 
-let steve={
+let steve = {
     vida: 75,
     armadura: 0,
     espada: 0,
     dano: 0,
     escudo: 0,
     itens: [] 
+}
+//itens 
+//1 =poção de vida
+//2 = golden apple
+let zumbi = {
+    vida: 11,
+    dano: 0
 
 }
 
-let zumbi = {
-    vida: 125,
-    dano: 0
-
+let esqueleto = {
+    vida: 105,
+    dano:0
 }
 
 let creeper = {
@@ -23,6 +29,7 @@ let creeper = {
     dano: 0
 
 }
+
 
 let opcao= 0
 let op = 0;
@@ -35,7 +42,7 @@ for(let cont = 1; cont != 0; cont ++){
 
     if (op == 0){
     await funcoes.contar(1);
-    console.log('Você deseja: \n 1. Continar \n 2.Desistir');
+    console.log('Você deseja: \n 1. Continuar \n 2.Desistir');
      opcao = Number(ler());
 
     await funcoes.contar(0);
@@ -65,8 +72,17 @@ await funcoes.contar(5);
     let escolha = Number(ler());
 
     await funcoes.contar(1);
+   for(let h = 1; h != 0; h ++){
+         if(escolha > 3 || escolha < 1){
+                     console.log('opção invalida \n escolha novamente')
+                     escolha = Number(ler());
 
-    if(escolha == 1){
+                 }else{
+                    break;
+                 }
+
+   }
+     if(escolha == 1){
        console.log('Você escolheu Batalhar.');
        console.log();
 
@@ -129,6 +145,18 @@ await funcoes.contar(5);
             await funcoes.contar(1);
 
             sit = '';
+
+            for(let g = 1; g != 0; g ++){
+                if(r1 > 6 || r1 < 1){
+                     console.log('opção invalida \n escolha novamente')
+                     r1 = Number(ler());
+
+                 }else{
+                    break;
+                 }
+
+            }
+
             if(r1 == 1){
                 sit = 'Parabéns Uma das suas escolhas foi a armadura de ferro';
                 steve.armadura = 1;
@@ -147,18 +175,19 @@ await funcoes.contar(5);
             
             else if(r1 == 4){
                 sit = 'Parabéns Uma das suas escolhas foi a Poção de Vida. \n\n****POÇÃO ADICIONADA AO INVENTÁRIO****';
-                steve.itens.push('Poção de Vida');
+                steve.itens.push(1);
             }
             
             else if(r1 == 5){
                 sit = 'Parabéns Uma das suas escolhas foi a Golden Apple. \n\n****GOLDEN APPLE ADICIONADA AO INVENTÁRIO****';
-                steve.itens.push('Golden Apple');
+                steve.itens.push(2);
             }
 
             else if(r1 == 6){
                 sit = 'Parabéns Uma das suas escolhas foi o Escudo. \n\n****ESCUDO ADICIONADO AO INVENTÁRIO****';
-                steve.itens.push('Escudo');
+                steve.escudo = 1;
             }
+            
 
             console.log(sit);
             await funcoes.contar(1);
@@ -168,8 +197,19 @@ await funcoes.contar(5);
 
             for(let cont2 = 1; cont2 != 0;cont2 ++){
 
+                   for(let h = 1; h != 0; h ++){
+         if(r2 > 6 || r2 < 1){
+                     console.log('opção invalida \n escolha novamente')
+                     r2 = Number(ler());
+
+                 }else{
+                    break;
+                 }
+                }
+
             if(r2 == r1){
                 sit = 'Esse item já foi escolhido, escolha outro.'
+                r2 = Number(ler());
             }
 
              else if(r2 == 1){
@@ -188,7 +228,7 @@ await funcoes.contar(5);
             }
             
             else if(r2 == 3){
-                sit = 'Parabéns a sua segunda escolha foi a Cura Total. \nSua vida foi reestaurada';
+                sit = 'Parabéns a sua segunda escolha foi a Cura Total. \nSua vida foi restaurada';
                 steve.vida = 75;
 
                 cont2 = -1
@@ -196,22 +236,23 @@ await funcoes.contar(5);
             
             else if(r2 == 4){
                 sit = 'Parabéns a sua segunda escolha foi a Poção de Vida. \n\n****POÇÃO ADICIONADA AO INVENTÁRIO****';
-                steve.itens.push('Poção de Vida');
+                steve.itens.push(1);
 
                 cont2 = -1
             }
             
             else if(r2 == 5){
                 sit = 'Parabéns a sua segunda escolha foi a Golden Apple. \n\n****GOLDEN APPLE AO INVENTÁRIO****';
-                steve.itens.push('Golden Apple');
+                steve.itens.push(2);
 
                 cont2 = -1
             }
             
             else if(r2 == 6){
                 sit = 'Parabéns a sua segunda escolhas foi o Escudo. \n\n****ESCUDO ADICIONADO AO INVENTÁRIO****';
-                steve.itens.push('Escudo');
+                steve.escudo = 1;
             }
+            else{console.log('opção invalida, escolha de 1 a 6!')}
 
             await funcoes.contar(1);
             console.log(sit);
@@ -221,6 +262,16 @@ await funcoes.contar(5);
         console.log('Faça a sua última escolha:')
         let r3 = Number(ler());
             for( cont3 = 1; cont3 != 0;cont3 ++){
+
+                   for(let h = 1; h != 0; h ++){
+         if(escolha > 3 || escolha < 1){
+                     console.log('opção invalida \n escolha novamente')
+                     escolha = Number(ler());
+
+                 }else{
+                    break;
+                 }
+                }
 
             if(r3 == r1|| r3 == r2){
 
@@ -251,22 +302,23 @@ await funcoes.contar(5);
             
             else if(r3 == 4){
                 sit = 'Parabéns a sua última escolha foi a Poção de Vida. \n\n****POÇÃO ADICIONADA AO INVENTÁRIO****';
-                steve.itens.push('Poção de Vida');
+                steve.itens.push(1);
 
                 cont3 = -1
             }
             
             else if(r3 == 5){
                 sit = 'Parabéns a sua última escolha foi a Golden Apple. \n\n****GOLDEN APPLE AO INVENTÁRIO****';
-                steve.itens.push('Golden Apple');
+                steve.itens.push(2);
 
                 cont3 = -1
             }
             
             else if(r3== 6){
                 sit = 'Parabéns a sua última escolha foi o Escudo. \n\n****ESCUDO ADICIONADO AO INVENTÁRIO****';
-                steve.itens.push('Escudo');
+                steve.escudo = 1;
             }
+            else{console.log('opção invalida, escolha entre 1 a 6!')}
 
             console.log(sit);
 
@@ -280,22 +332,49 @@ await funcoes.contar(5);
         }
     }
     
-
-
-
-
     else if(escolha == 2){
+        console.log('você se esquivou, agora você tem as opções: \n1.voltar para batalha \n2. abrir o inventario');
+        let res = Number(ler());
 
-        await funcoes.contar(2);
-        console.log('Você se esquiva, mas como ainda nâo tem nunhum item, terá que voltar para a batalha\n ');
+        await funcoes.contar(1);
+        if(res == 1){
+            console.log('voltando para batalha!');
+            console.log();
+        }
+        else if(res == 2){
+            console.log('inventario aberto!');
+            //console.log(`os itens do seu inventario são: ${steve.itens}, ${r2} e ${r3}`);
+
+            for(let item of steve.itens){
+
+                if(item == 0){
+                    console.log('nesse espaço não tem nada!');
+                }
+                else if (item == 1){
+                    console.log('Poção de vida')
+
+                }
+                else if(item == 2){
+                console.log('Golden apple')
+                
+            }
+            console.log('agora escolha um dos itens(escreva corretamente!)');
+
+            // 
+    
+        }
+    
     }
+    else{console.log('opção invalida, escolha de 1 ou 2!')}
+}
+
 
     else if(escolha == 3){
         await funcoes.contar(2);
         console.log('Sinto muito, você fugiu da luta e agora terá que refazer o jogo :( ');
         i = -1
     }
-
+    
 
     }
     
@@ -305,15 +384,13 @@ else if(opcao == 2){
     cont = -1;
 }
 
+//batalha esqueleto
+
 else if(opcao == 3){
-    console.log('Após essa intensa batalha contra um zumbi, que foi o seu primeiro inimigo, você segue viagem em busca de um enderman  ');
-    console.log();
-    
-    
-    cont = -1;
+    //batalha esqueleto
+    await funcoes.batalhaEsqueleto(steve, esqueleto);
+    op = 0; // recomecar
 }
-
-
 }
 
 
