@@ -418,7 +418,7 @@ else if(opcao == 3){
       }
 
       if (esqueleto.vida <= 0) {//menu
-        console.log('parabéns! você derrotou o esqueleto, vamos continuar a nossa jornada');
+        console.log('parabéns! você derrotou o esqueleto, e um ganhou o arco, vamos continuar a nossa jornada');
         console.log('')
         console.log('Agora você pode escolher 2 entre essas 3 opções:\n 1.armadura de diamente \n 2. Espada de diamante \n3. Cura Total');
         let r1 = Number(ler());
@@ -513,8 +513,8 @@ else if(opcao == 3){
   console.log('Você se esquivou');
 
   if(steve.pocao >= 1){
-console.log(`Você tem ${steve.pocao} poções de vida. Deseja utiliza-la?\n 1.Sim\n 2.Não`);
-let rep = Number(ler());
+    console.log(`Você tem ${steve.pocao} poções de vida. Deseja utiliza-la? \n 1.Sim \n 2.Não`);
+    let rep = Number(ler());
 
 await funcoes.contar(0);
 if(rep == 1){
@@ -553,15 +553,144 @@ op = 0;
 }
 
 
-
-
-
-
 }
 
 //começo contra o enderman
 else if(opcao ==4){
-    console.log('aiiiiiii');
+    console.log('Depois dessas suas duas batalhas intensas, voçê finalmente encontrou o enderman');
+    await funcoes.contar(0);
+    console.log();
+        console.log('Ele te avistou, ele está vindo te atacar');
+
+
+      for (let i = 1; i != 0; i++) {
+            console.log('Você tem algumas opções: \n 1. Batalhar \n 2. Esquivar \n 3. Fugir:');
+            let  escolha = Number(ler());
+
+            await funcoes.contar(1);
+
+             if (escolha == 1) { // batalhar
+      console.log('você escolheu batalhar');
+      console.log();
+
+      // steve atacando o enderman
+      steve.dano = funcoes.danoSteve(steve);
+      enderman.vida = enderman.vida - steve.dano;
+      if (enderman.vida <= 0) {
+        enderman.vida = 0;
+      }
+
+      await funcoes.contar(1);
+      if (steve.espada == 0 && steve.dano >= 15) { // se for espada de couro
+        console.log('Caramba, você deu um dano critico!');
+      } 
+      else if (steve.espada == 1 && steve.dano >= 28) { // se for espada de ferro
+        console.log('Caramba, você deu um dano critico!')
+      }
+
+      await funcoes.contar(2);
+
+      console.log(`você atacou o esqueleto e deu ${steve.dano} de dano.\nAgora o esqueleto tem ${enderman.vida} de vida `);
+
+      // esqueleto atacando o steve
+      esqueleto.dano = funcoes.danoEnderman(steve, enderman);
+
+      await funcoes.contar(1);
+
+      if (enderman.dano <= 5) {
+        console.log('eita, o enderman errou o ataque!');
+        console.log();
+      } else {
+        steve.vida = steve.vida - enderman.dano;
+        if (steve.vida <= 0) {
+          steve.vida = 0;
+        }
+        console.log(`Cuidado, o esqueleto acertou o tiro. \nEle te deu ${enderman.dano} de dano e você ficou com ${steve.vida} de vida `);
+      }
+
+      await funcoes.contar(1);
+
+      if (steve.vida <= 0) {
+        console.log('Sinto muito, você morreu e agora terá que refazer o jogo :(');
+        i = -1;
+        enderman.vida = 85;
+        esqueleto.vida = 105;
+        zumbi.vida = 125;
+        steve.vida = 75;
+        op = 0;
+      }
+
+      if (esqueleto.vida <= 0) {//menu
+        console.log('parabéns! você derrotou o enderman, nossa jornada acaba aqui');
+        console.log('')
+       
+      }
+       
+ opcao = 4;
+ op = 1;
+
+   }
+
+   else if(escolha == 2){
+    console.log('você se esquivou, agora você tem as opções: \n1.voltar para batalha \n2. abrir o inventario');
+    let res = Number(ler());
+
+ 
+
+    await funcoes.contar(1);
+    if(res == 1){
+        console.log('voltando para batalha!');
+        console.log();
+    }
+    else if(res == 2){
+
+  console.log('Você se esquivou');
+  console.log(`Voçê tem esses itens \n `)
+
+  if(steve.pocao >= 1){
+    console.log(`Você tem ${steve.pocao} poções de vida. Deseja utiliza-la? \n 1.Sim \n 2.Não`);
+    let rep = Number(ler());
+
+await funcoes.contar(0);
+
+if(rep == 1){
+    steve.pocao = steve.pocao - 1;
+    steve.vida = steve.vida + 45;
+
+    console.log('Você ganhou mais 45 de vida\n Voltando para batalha');
+
+}
+else{
+    console.log('Voltand para a batalha.');
+}
+
+}
+
+else if(rep == 2){
+    console.log('Voltando Para a batalha.');
+}
+
+}
+
+else{
+    console.log('opção invalida, escolha de 1 ou 2!')
+}
+
+}
+
+else if(escolha == 3 ){
+console.log('você escolheu fugir :(');
+
+console.log('O esqueleto te mata, Covarde\n');
+
+i = -1;
+op = 0;
+}
+
+      }
+
+
+
 
 }
 }
