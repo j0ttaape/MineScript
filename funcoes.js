@@ -28,7 +28,8 @@ export function danoEsqueleto(steve, esqueleto) {
       esqueleto.dano = Math.floor(Math.random() * (30 / 2))
     }
 
-    esqueleto.dano = Math.floor(Math.random() * 30)
+    else{
+    esqueleto.dano = Math.floor(Math.random() * 30)}
   }
 
   else if (steve.armadura == 1) {
@@ -36,8 +37,10 @@ export function danoEsqueleto(steve, esqueleto) {
     if (steve.escudo == 1) {
       esqueleto.dano = Math.floor(Math.random() * (20 / 2))
     }
-    esqueleto.dano = Math.floor(Math.random() * 20)
 
+    else{
+    esqueleto.dano = Math.floor(Math.random() * 20)
+}
 
   }
 
@@ -47,65 +50,51 @@ export function danoEsqueleto(steve, esqueleto) {
       esqueleto.dano = Math.floor(Math.random() * (10 / 2))
     }
 
+    else{
     esqueleto.dano = Math.floor(Math.random() * 10)
-
+}
   }
   return esqueleto.dano
 }
 
 //funçao enderman
 
-export function atackenderman(enderman,steve) {
+export function danoEnderman(steve, enderman) {
 
-    if(steve.armadura == 0){
-        enderman.dano = Math.floor(Math.random()*40)
+  if (steve.armadura == 0) {
+    if (steve.escudo == 1) {
+      enderman.dano = Math.floor(Math.random() * (30 / 2))
     }
 
-    else if(steve.armadura == 1){
+    else{
+    enderman.dano = Math.floor(Math.random() * 30)}
+  }
 
-        enderman.dano = Math.floor(Math.random()*27)
+  else if (steve.armadura == 1) {
+
+    if (steve.escudo == 1) {
+      enderman.dano = Math.floor(Math.random() * (20 / 2))
     }
 
-    else if(steve.armadura == 2){
-
-        enderman.dano = Math.floor(Math.random()*18)
-    }
-    return enderman.dano
+    else{
+    enderman.dano = Math.floor(Math.random() * 20)
 }
 
-
-//-- function Creeper  --
-export function danoCreeper(creeper,steve){
-
-  if(steve.armadura == 0){
-    if(steve.escudo == 1){
-      creeper.dano = Math.floor(Math.random()*( 30 /2))
-    }
-   
-    creeper.dano = Math.floor(Math.random()*30)
   }
 
-  else if(steve.armadura == 1){
+  else if (steve.armadura == 2) {
 
-    if(steve.escudo == 1){
-      creeper.dano = Math.floor(Math.random()*( 20 /2))
+    if (steve.escudo == 1) {
+      enderman.dano = Math.floor(Math.random() * (10 / 2))
     }
-      creeper.dano = Math.floor(Math.random()*20)
 
-      
-  }
-
-  else if(steve.armadura == 2){
-
-    if(steve.escudo == 1){
-      creeper.dano = Math.floor(Math.random()*( 10 /2))
-    }
-      
-      creeper.dano = Math.floor(Math.random()*10)
-      
-  }
-  return creeper.dano
+    else{
+    enderman.dano = Math.floor(Math.random() * 10)
 }
+  }
+  return enderman.dano
+}
+
 
 
 
