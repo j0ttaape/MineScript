@@ -8,7 +8,7 @@ let steve = {
     espada: 0,
     dano: 0,
     escudo: 0,
-    itens: [] 
+    pocao: 0
 }
 //itens 
 //1 =poção de vida
@@ -142,7 +142,7 @@ await funcoes.contar(5);
 
             await funcoes.contar(2);
 
-            console.log('Agora você pode escolher 3 entre essas 6 opções: \n 1. Armadura de Ferro \n 2. Espada de Ferro \n 3. Cura Total \n 4. Poção de Vida \n 5. Golden Apple\n 6. Escudo');
+            console.log('Agora você pode escolher 3 entre essas 6 opções: \n 1. Armadura de Ferro \n 2. Espada de Ferro \n 3. Cura Total \n 4. Poção de Vida \n 5. Escudo');
 
             let r1 = Number(ler());
             console.log();
@@ -151,49 +151,50 @@ await funcoes.contar(5);
 
             sit = '';
 
-            for(let g = 1; g != 0; g ++){
-                if(r1 > 6 || r1 < 1){
-                     console.log('opção invalida \n escolha novamente')
-                     r1 = Number(ler());
-
-                 }else{
-                    break;
-                 }
-
-            }
-
+            
+            for(let h = 1; h !=0; h++){
             if(r1 == 1){
                 sit = 'Parabéns Uma das suas escolhas foi a armadura de ferro';
                 steve.armadura = 1;
+
+                h= -1;
             }
 
             
             else if(r1 == 2){
                 sit = 'Parabéns Uma das suas escolhas foi a espada de ferro';
                 steve.espada = 2;
+
+                h= -1;
             }
             
             else if(r1 == 3){
                 sit = 'Parabéns Uma das suas escolhas foi a Cura Total. \nSua vida foi reestaurada';
                 steve.vida = 75;
+
+                h= -1;
             }
             
             else if(r1 == 4){
-                sit = 'Parabéns Uma das suas escolhas foi a Poção de Vida. \n\n****POÇÃO ADICIONADA AO INVENTÁRIO****';
-                steve.itens.push(1);
+                sit = 'Parabéns Uma das suas escolhas foi a Poção de Vida.';
+                steve.pocao =steve.pocao = 1;
+
+                h= -1;
             }
             
-            else if(r1 == 5){
-                sit = 'Parabéns Uma das suas escolhas foi a Golden Apple. \n\n****GOLDEN APPLE ADICIONADA AO INVENTÁRIO****';
-                steve.itens.push(2);
-            }
 
-            else if(r1 == 6){
+            else if(r1 == 5){
                 sit = 'Parabéns Uma das suas escolhas foi o Escudo. \n';
                 steve.escudo = 1;
+
+                h= -1;
+            }
+
+            else{
+                console.log('Opção inválida');
             }
             
-
+}
             console.log(sit);
             await funcoes.contar(1);
 
@@ -202,15 +203,6 @@ await funcoes.contar(5);
 
             for(let cont2 = 1; cont2 != 0;cont2 ++){
 
-                   for(let h = 1; h != 0; h ++){
-         if(r2 > 6 || r2 < 1){
-                     console.log('opção invalida \n escolha novamente')
-                     r2 = Number(ler());
-
-                 }else{
-                    break;
-                 }
-                }
 
             if(r2 == r1){
                 sit = 'Esse item já foi escolhido, escolha outro.'
@@ -240,20 +232,14 @@ await funcoes.contar(5);
             }
             
             else if(r2 == 4){
-                sit = 'Parabéns a sua segunda escolha foi a Poção de Vida. \n\n****POÇÃO ADICIONADA AO INVENTÁRIO****';
-                steve.itens.push(1);
+                sit = 'Parabéns a sua segunda escolha foi a Poção de Vida.';
+                steve.pocao = steve.pocao + 1;
 
                 cont2 = -1
             }
+            
             
             else if(r2 == 5){
-                sit = 'Parabéns a sua segunda escolha foi a Golden Apple. \n\n****GOLDEN APPLE AO INVENTÁRIO****';
-                steve.itens.push(2);
-
-                cont2 = -1
-            }
-            
-            else if(r2 == 6){
                 sit = 'Parabéns a sua segunda escolhas foi o Escudo. \n';
                 steve.escudo = 1;
 
@@ -270,16 +256,6 @@ await funcoes.contar(5);
         console.log('Faça a sua última escolha:')
         let r3 = Number(ler());
             for( cont3 = 1; cont3 != 0;cont3 ++){
-
-                   for(let h = 1; h != 0; h ++){
-         if(escolha > 3 || escolha < 1){
-                     console.log('opção invalida \n escolha novamente')
-                     escolha = Number(ler());
-
-                 }else{
-                    break;
-                 }
-                }
 
             if(r3 == r1|| r3 == r2){
 
@@ -309,20 +285,14 @@ await funcoes.contar(5);
             }
             
             else if(r3 == 4){
-                sit = 'Parabéns a sua última escolha foi a Poção de Vida. \n\n****POÇÃO ADICIONADA AO INVENTÁRIO****';
-                steve.itens.push(1);
+                sit = 'Parabéns a sua última escolha foi a Poção de Vida.';
+                steve.pocao = steve.pocao + 1;
 
                 cont3 = -1
             }
             
-            else if(r3 == 5){
-                sit = 'Parabéns a sua última escolha foi a Golden Apple. \n\n****GOLDEN APPLE ADICIONADA AO INVENTÁRIO****';
-                steve.itens.push(2);
-
-                cont3 = -1
-            }
             
-            else if(r3== 6){
+            else if(r3== 5){
                 sit = 'Parabéns a sua última escolha foi o Escudo.';
                 steve.escudo = 1;
 
@@ -353,30 +323,10 @@ await funcoes.contar(5);
         }
         else if(res == 2){
 
-            console.log('Antes de abrir o seu inventário eu irei fazer uma guia dos códigos')
-            console.log('inventario aberto!');
-      
-            for(let item of steve.itens){
-
-                if(item == 0){
-                    console.log('nesse espaço não tem nada!');
-                }
-                else if (item == 1){
-                    console.log('Poção de vida');
-
-                }
-                else if(item == 2){
-                console.log('Golden apple');
-                
-            }
-            console.log('agora escolha um dos itens(escreva corretamente!)');
-
-            
-    
-        }
+           console.log('Você se esquiva mas como ainda não tem nenhum item, você volta pra batalha! ')
     
     }
-    else{console.log('opção invalida, escolha de 1 ou 2!')}
+    
 }
 
 
@@ -392,23 +342,22 @@ await funcoes.contar(5);
 else if(opcao == 2){
    
     console.log("Você desistiu do jogo. Até a próxima!");
-    cont = -1
+    cont = -1;
 }
 }
 
 
 
 
-        //batalha esqueleto
 
-
-
+//batalha do esqueleto
 else if(opcao == 3){
     
       //await funcoes.contar(1);
 
   // apresentacap
   console.log('Após essa intensa batalha contra um zumbi, que foi o seu primeiro inimigo, você segue viagem em busca de um enderman \n ');
+  await funcoes.contar(0);
   console.log('Cuidado, você é avistado por um esqueleto e ele começa a te atacar');
   console.log();
 
@@ -454,7 +403,7 @@ else if(opcao == 3){
         if (steve.vida <= 0) {
           steve.vida = 0;
         }
-        console.log(`Cuidado, o esqueleto acertou o tiro. \nEle te deu ${esqueleto.dano} de dano e você ficou com ${steve.vida} de vida `)
+        console.log(`Cuidado, o esqueleto acertou o tiro. \nEle te deu ${esqueleto.dano} de dano e você ficou com ${steve.vida} de vida `);
       }
 
       await funcoes.contar(1);
@@ -462,6 +411,10 @@ else if(opcao == 3){
       if (steve.vida <= 0) {
         console.log('Sinto muito, você morreu e agora terá que refazer o jogo :(');
         i = -1;
+        esqueleto.vida = 105;
+        zumbi.vida = 125;
+        steve.vida = 75;
+        op = 0;
       }
 
       if (esqueleto.vida <= 0) {//menu
@@ -469,10 +422,8 @@ else if(opcao == 3){
         console.log('')
         console.log('Agora você pode escolher 2 entre essas 3 opções:\n 1.armadura de diamente \n 2. Espada de diamante \n3. Cura Total');
         let r1 = Number(ler());
-
-        await funcoes.contar(1);
         
-        await funcoes.contar(0)
+        await funcoes.contar(0);
         for(let h = 1; h !=0; h++){
         if(r1 == 1){
 
@@ -539,9 +490,10 @@ else if(opcao == 3){
         
        
 
-        
+        i = -1;
       }
- 
+ opcao = 4;
+ op = 1;
 
    }
 
@@ -549,7 +501,7 @@ else if(opcao == 3){
     console.log('você se esquivou, agora você tem as opções: \n1.voltar para batalha \n2. abrir o inventario');
     let res = Number(ler());
 
-
+ 
 
     await funcoes.contar(1);
     if(res == 1){
@@ -558,33 +510,36 @@ else if(opcao == 3){
     }
     else if(res == 2){
 
-        console.log('Aqui vai um guia sobre os códigos de itens para você escolher usa-los\n');
+  console.log('Você se esquivou');
 
-        console.log('ITENS\n  1. Poção de vida\n 2. Golden Apple')
-        console.log('inventario aberto!');
-  
-        for(let item of steve.itens){
+  if(steve.pocao >= 1){
+console.log(`Você tem ${steve.pocao} poções de vida. Deseja utiliza-la?\n 1.Sim\n 2.Não`);
+let rep = Number(ler());
 
-            if(item == 0){
-                console.log('nesse espaço não tem nada!');
-            }
-            else if (item == 1){
-                console.log('Poção de vida');
+await funcoes.contar(0);
+if(rep == 1){
+    steve.pocao = steve.pocao - 1;
+    steve.vida = steve.vida + 45;
 
-            }
-            else if(item == 2){
-            console.log('Golden apple');
-            
-        }
-        
-       
-        
-    }
-    
-    console.log('Escolha o item de acordo com o número');
+    console.log('Você ganhou mais 45 de vida\n Voltando para batalha');
 
 }
-else{console.log('opção invalida, escolha de 1 ou 2!')}
+else{
+    console.log('Voltand para a batalha.');
+}
+
+}
+
+else if(rep == 2){
+    console.log('Voltando Para a batalha.');
+}
+
+}
+
+else{
+    console.log('opção invalida, escolha de 1 ou 2!')
+}
+
 }
 
 else if(escolha == 3 ){
@@ -597,10 +552,16 @@ op = 0;
 }
 }
 
-opcao = 4; 
 
 
 
+
+
+}
+
+//começo contra o enderman
+else if(opcao ==4){
+    console.log('aiiiiiii');
 
 }
 }
