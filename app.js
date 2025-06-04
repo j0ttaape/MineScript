@@ -14,13 +14,13 @@ let steve = {
 //1 =poção de vida
 //2 = golden apple
 let zumbi = {
-    vida: 11,
+    vida: 1,
     dano: 0
 
 }
 
 let esqueleto = {
-    vida: 105,
+    vida: 1,
     dano:0
 }
 
@@ -30,6 +30,11 @@ let creeper = {
 
 }
 
+let enderman = {
+    vida: 200,
+    dano: 0
+
+}
 
 let opcao= 0
 let op = 0;
@@ -38,7 +43,7 @@ console.log(`\nBem-vindo você está no MineScript.
     \nSua missão é derrotar os mobs e enfrentar o boss final.
     \nBoa sorte, pois você vai precisar! \n`);
     
-for(let cont = 1; cont != 0; cont ++){
+for (let cont = 1; cont != 0; cont++){
 
     if (op == 0){
     await funcoes.contar(1);
@@ -60,9 +65,9 @@ console.log(`O seu primeiro inimigo é o zumbi.
     Os atributos do seu personagem são:
     Vida: ${steve.vida}
     Dano: entre 0 e 20
-    Armadura: de couro   
+    Armadura: de couro   '  
 `
-)}
+)
 
 await funcoes.contar(5);
     //Batalha Com o Zumbi
@@ -343,24 +348,23 @@ await funcoes.contar(5);
         }
         else if(res == 2){
             console.log('inventario aberto!');
-            //console.log(`os itens do seu inventario são: ${steve.itens}, ${r2} e ${r3}`);
-
+      
             for(let item of steve.itens){
 
                 if(item == 0){
                     console.log('nesse espaço não tem nada!');
                 }
                 else if (item == 1){
-                    console.log('Poção de vida')
+                    console.log('Poção de vida');
 
                 }
                 else if(item == 2){
-                console.log('Golden apple')
+                console.log('Golden apple');
                 
             }
             console.log('agora escolha um dos itens(escreva corretamente!)');
 
-            // 
+            
     
         }
     
@@ -377,20 +381,164 @@ await funcoes.contar(5);
     
 
     }
-    
 }
-
 else if(opcao == 2){
-    cont = -1;
+   
+    console.log("Você desistiu do jogo. Até a próxima!");
+    cont = -1
+}
 }
 
-//batalha esqueleto
+
+
+
+        //batalha esqueleto
+
+
 
 else if(opcao == 3){
-    //batalha esqueleto
-    await funcoes.batalhaEsqueleto(steve, esqueleto);
-    op = 0; // recomecar
+    
+      //await funcoes.contar(1);
+
+  // apresentacap
+  console.log('Após essa intensa batalha contra um zumbi, que foi o seu primeiro inimigo, você segue viagem em busca de um enderman \n ');
+  console.log('Cuidado, você é avistado por um esqueleto e ele começa a te atacar');
+  console.log();
+
+  for (let i = 1; i != 0; i++) {
+    console.log('Você tem algumas opções: \n 1. Batalhar \n 2. Esquivar \n 3. Fugir:');
+    let  escolha = Number(ler());
+
+    await funcoes.contar(1);
+    
+    if (escolha == 1) { // batalhar
+      console.log('você escolheu batalhar');
+      console.log();
+
+      // steve atacando o esqueleto
+      steve.dano = danoSteve(steve);
+      esqueleto.vida = esqueleto.vida - steve.dano;
+      if (esqueleto.vida <= 0) {
+        esqueleto.vida = 0;
+      }
+
+      await funcoes.contar(1);
+      if (steve.espada == 0 && steve.dano >= 15) { // se for espada de couro
+        console.log('Caramba, você deu um dano critico!');
+      } else if (steve.espada == 1 && steve.dano >= 28) { // se for espada de ferro
+        console.log('Caramba, você deu um dano critico!')
+      }
+
+      await funcoes.contar(2);
+
+      console.log(`você atacou o esqueleto e deu ${steve.dano} de dano.\nAgora o esqueleto tem ${esqueleto.vida} de vida `);
+
+      // esqueleto atacando o steve
+      esqueleto.dano = danoEsqueleto(steve, esqueleto);
+
+      await funcoes.contar(1);
+
+      if (esqueleto.dano <= 5) {
+        console.log('eita, o esqueleto errou o tiro!');
+        console.log();
+      } else {
+        steve.vida = steve.vida - esqueleto.dano;
+        if (steve.vida <= 0) {
+          steve.vida = 0;
+        }
+        console.log(`Cuidado, o esqueleto acertou o tiro. \nEle te deu ${esqueleto.dano} de dano e você ficou com ${steve.vida} de vida `)
+      }
+
+      await funcoes.contar(1);
+
+      if (steve.vida <= 0) {
+        console.log('Sinto muito, você morreu e agora terá que refazer o jogo :(');
+        break;
+      }
+
+      if (esqueleto.vida <= 0) {//menu
+        console.log('parabens! você derrotou o esqueleto, vamos continuar a nossa jornada');
+        console.log('')
+        console.log('Agora você pode escolher 2 entre essas 3 opções: 1.armadura de diamente \n 2. Espada de diamante \n3. Cura Total');
+        let resp = Number(ler());
+
+        await funcoes.contar(1);
+        
+        if(resp == 1){
+
+            console.log('Você escolheu a armadura de Diamante');
+            steve.armadura = 2;
+        
+        }
+        else if( resp == 2 ){
+            console.log('voce escolheu a espada de diamante');
+            steve.espada = 2;
+        }
+        else if( resp == 3){
+            console.log('voce escolheu cura total');
+            steve.vida = 75;
+        }
+        
+        break;
+      }
+ 
+
+   }
+
+   else if(escolha == 2){
+    console.log('você se esquivou, agora você tem as opções: \n1.voltar para batalha \n2. abrir o inventario');
+    let res = Number(ler());
+
+    await funcoes.contar(1);
+    if(res == 1){
+        console.log('voltando para batalha!');
+        console.log();
+    }
+    else if(res == 2){
+
+        console.log('inventario aberto!');
+  
+        for(let item of steve.itens){
+
+            if(item == 0){
+                console.log('nesse espaço não tem nada!');
+            }
+            else if (item == 1){
+                console.log('Poção de vida');
+
+            }
+            else if(item == 2){
+            console.log('Golden apple');
+            
+        }
+        
+        
+        
+    }
+    
+    console.log('Escolha o item de acordo com o número');
+
+}
+else{console.log('opção invalida, escolha de 1 ou 2!')}
+}
+
+else if(escolha == 3 ){
+console.log('você escolheu fugir :(');
+
+console.log('O esqueleto te mata, Covarde\n');
+
+i = -1;
+op = 0;
 }
 }
+
+opcao = 4; 
+
+
+
+
+}
+}
+
 
 

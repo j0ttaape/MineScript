@@ -53,6 +53,26 @@ export function danoEsqueleto(steve, esqueleto) {
   return esqueleto.dano
 }
 
+//funçao enderman
+
+export function atackenderman(enderman,steve) {
+
+    if(steve.armadura == 0){
+        enderman.dano = Math.floor(Math.random()*40)
+    }
+
+    else if(steve.armadura == 1){
+
+        enderman.dano = Math.floor(Math.random()*27)
+    }
+
+    else if(steve.armadura == 2){
+
+        enderman.dano = Math.floor(Math.random()*18)
+    }
+    return enderman.dano
+}
+
 
 //-- function Creeper  --
 export function danoCreeper(creeper,steve){
@@ -188,13 +208,13 @@ export async function batalhaEsqueleto(steve, esqueleto) {
         
         break;
       }
-    } else if (escolha == 2) { // esquivar
-      console.log('parabens! você esquivou');
-    } else if (escolha == 3) { // fugir
-      console.log('você fugiu da batalha, o jogo será reiniciado!');
-      break;
-    } else {
-      console.log('escolha desconhecida');
-    }
+  //  } else if (escolha == 2) { // esquivar
+     //console.log('parabens! você esquivou');
+   // } else if (escolha == 3) { // fugir
+   //   console.log('você fugiu da batalha, o jogo será reiniciado!');
+    //  break;
+  // } else {
+   //   console.log('escolha desconhecida');
+   }
   }
 }
