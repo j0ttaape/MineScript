@@ -561,8 +561,61 @@ op = 0;
 
 //começo contra o enderman
 else if(opcao ==4){
-    console.log('aiiiiiii');
 
+//apresentacao
+
+await funcoes.contar(0);
+console.log(`Apos a sua longa luta com o esqueleto, você rouba o arco dele e parti para uma mineração na caverna
+    Apos uma baita mineração você decide que está na hora de capturar Ender Pearls para finalizar a sua aventura no mundo.`);
+    
+await funcoes.contar(0);
+
+console.log(`Ao se deparar com o EnderMan, você toma um golpe por encaro-lo de forma ameaçadora. E sua batalha começar`);
+
+    for (let i = 1; i != 0; i++){
+
+        console.log(`Se prepare, você tem as seguintes opções: \n 1. Batalhar \n 2. Esquivar \n Fugir`)
+
+        let escola = Number(ler());
+
+    if(escola ==1 ){
+        console.log(`Você escolheu batalhar! \n`)
+
+        steve.dano = funcoes.danoSteve(steve);
+        enderman.vida = enderman.vida - steve.dano;
+
+        if(enderman.vida <= 0){
+            enderman.vida = 0;
+        }
+
+        await funcoes.contar(0);
+
+        // espada de couro
+        if(steve.espada == 0 &&steve.dano >= 15) {
+            console.log(`Caramba, Você deu um dano crítico`);
+        }
+        //espada de ferro
+        else if(steve.espada == 1 && steve.dano >= 28){
+
+            console.log(`Caramba, Você deu um dano crítico`);
+
+        }
+
+        //espada de diamante
+        else if (steve.escudo == 2 && steve.dano >= 34 ){
+            console.log(`Caramba você deu um dano crítico`)
+        }
+
+        
+
+      console.log(`você atacou o esqueleto e deu ${steve.dano} de dano.\nAgora o esqueleto tem ${enderman.vida} de vida `);
+
+      // enderman atacando
+
+        enderman.dano = funcoes.danoEnderman(steve, esqueleto)
+    }
+
+    }
 }
 }
 
