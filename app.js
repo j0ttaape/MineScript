@@ -14,21 +14,17 @@ let steve = {
 //1 =poção de vida
 //2 = golden apple
 let zumbi = {
-    vida: 1,
+    vida: 125,
     dano: 0
 
 }
 
 let esqueleto = {
-    vida: 1,
+    vida: 105,
     dano:0
 }
 
-let creeper = {
-    vida: 150,
-    dano: 0
 
-}
 
 let enderman = {
     vida: 200,
@@ -558,7 +554,13 @@ op = 0;
 
 //começo contra o enderman
 else if(opcao ==4){
-    console.log('Depois dessas suas duas batalhas intensas, voçê finalmente encontrou o enderman');
+    console.log('Após ganhar do esqueleto vocêr tem a missão de achar um enderman e derrotalo para conseguir o olho dele e ir para o The End');
+    console.log()
+
+    await funcoes.contar(0);
+
+    console.log('Você encontra um enderman, mas cuidado, ele se teleporta e te bate quando voce menos espera');
+
     await funcoes.contar(0);
     console.log();
         console.log('Ele te avistou, ele está vindo te atacar');
@@ -575,11 +577,23 @@ else if(opcao ==4){
       console.log();
 
       // steve atacando o enderman
+      
       steve.dano = funcoes.danoSteve(steve);
+
+      if(steve.dano <= 8){
+
+        console.log('O enderman se teleportou e você errou o ataque nele :(');
+
+      }
+
+      else{
       enderman.vida = enderman.vida - steve.dano;
+    }
+      
       if (enderman.vida <= 0) {
         enderman.vida = 0;
       }
+
 
       await funcoes.contar(1);
       if (steve.espada == 0 && steve.dano >= 15) { // se for espada de couro
@@ -591,22 +605,26 @@ else if(opcao ==4){
 
       await funcoes.contar(2);
 
-      console.log(`você atacou o esqueleto e deu ${steve.dano} de dano.\nAgora o esqueleto tem ${enderman.vida} de vida `);
+      console.log(`você atacou o enderman e deu ${steve.dano} de dano.\nAgora o enderman tem ${enderman.vida} de vida `);
 
       // enderman atacando o steve
-      esqueleto.dano = funcoes.danoEnderman(steve, enderman);
+      enderman.dano = funcoes.danoEnderman(steve, enderman);
 
       await funcoes.contar(1);
 
-      if (enderman.dano <= 5) {
+      if (enderman.dano <= 9) {
         console.log('eita, o enderman errou o ataque!');
         console.log();
-      } else {
+      } 
+      
+      else {
         steve.vida = steve.vida - enderman.dano;
+
         if (steve.vida <= 0) {
           steve.vida = 0;
         }
-        console.log(`Cuidado, o enderman acertou o tiro. \n Ele te deu ${enderman.dano} de dano e você ficou com ${steve.vida} de vida `);
+
+        console.log(`Cuidado, o enderman acertou o ataque. \n Ele te deu ${enderman.dano} de dano e você ficou com ${steve.vida} de vida `);
       }
 
       await funcoes.contar(1);
@@ -625,15 +643,18 @@ else if(opcao ==4){
         console.log('parabéns! você derrotou o enderman, nossa jornada acaba aqui');
         console.log('')
        
+
+        i=-1
+        cont = -1
       }
        
- opcao = 4;
- op = 1;
+ 
+ op = 0;
 
    }
 
    else if(escolha == 2){
-    console.log('você se esquivou, agora você tem as opções: \n1.voltar para batalha \n2. abrir o inventario');
+    console.log('você se esquivou, agora você tem as opções: \n1.voltar para batalha \n2. abrir o inventario\n 3.Usar Arco');
     let res = Number(ler());
 
  
@@ -645,11 +666,10 @@ else if(opcao ==4){
     }
     else if(res == 2){
 
-  console.log('Você se esquivou');
-  console.log(`Voçê tem esses itens \n ${r3}`)
+  console.log('Abrindo o inventário');
 
   if(steve.pocao >= 1){
-    console.log(`Você tem 1.${steve.pocao} poções de vida e um arco. Deseja utiliza-la qual? \n 1.Poção  \n 2.Arco \n 3.Não ultilizar `);
+    console.log(`Você tem 1.${steve.pocao} poções de vida e um arco. Deseja utiliza-la qual? \n 1.Poção\n 2.Voltar para a batalha `);
     let rep = Number(ler());
 
 await funcoes.contar(0);
@@ -663,7 +683,8 @@ if(rep == 1){
 }
 
 else if(rep == 2){
-    enderman.vida = enderman.vida - Math.floor(Math.randoom()* 35) 
+console.log('Voltando para a batalha');
+
 }
 
 else{
@@ -672,14 +693,17 @@ else{
 
 }
 
-else if(rep == 3){
-    console.log('Voltando Para a batalha.');
 }
 
+else if(res == 3){
+    steve.dano = Math.floor(Math.random()* 35);
+    enderman.vida = enderman.vida - steve.dano;
+    
+    console.log(`Você acerta uma flechada no enderman e retira ${steve.dano} de vida, deixando ele com ${enderman.vida} de vida`);
 }
 
 else{
-    console.log('opção invalida, escolha de 1 ou 2!');
+    console.log('Opção inválida, Voltando para a batalha');
 }
 
 }
@@ -690,7 +714,7 @@ console.log('você escolheu fugir :(');
 console.log('O enderman te mata, Covarde\n');
 
 i = -1;
-op = 0;
+op = 5 ;
 }
 
       }
