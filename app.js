@@ -38,6 +38,7 @@ let enderman = {
 
 let opcao= 0
 let op = 0;
+
 //inicio do Jogo
 console.log(`\nBem-vindo você está no MineScript.
     \nSua missão é derrotar os mobs e enfrentar o boss final.
@@ -525,7 +526,7 @@ if(rep == 1){
 
 }
 else{
-    console.log('Voltand para a batalha.');
+    console.log('Voltando para a batalha.');
 }
 
 }
@@ -592,7 +593,7 @@ else if(opcao ==4){
 
       console.log(`você atacou o esqueleto e deu ${steve.dano} de dano.\nAgora o esqueleto tem ${enderman.vida} de vida `);
 
-      // esqueleto atacando o steve
+      // enderman atacando o steve
       esqueleto.dano = funcoes.danoEnderman(steve, enderman);
 
       await funcoes.contar(1);
@@ -605,7 +606,7 @@ else if(opcao ==4){
         if (steve.vida <= 0) {
           steve.vida = 0;
         }
-        console.log(`Cuidado, o esqueleto acertou o tiro. \nEle te deu ${enderman.dano} de dano e você ficou com ${steve.vida} de vida `);
+        console.log(`Cuidado, o enderman acertou o tiro. \n Ele te deu ${enderman.dano} de dano e você ficou com ${steve.vida} de vida `);
       }
 
       await funcoes.contar(1);
@@ -620,7 +621,7 @@ else if(opcao ==4){
         op = 0;
       }
 
-      if (esqueleto.vida <= 0) {//menu
+      if (enderman.vida <= 0) {//menu
         console.log('parabéns! você derrotou o enderman, nossa jornada acaba aqui');
         console.log('')
        
@@ -645,10 +646,10 @@ else if(opcao ==4){
     else if(res == 2){
 
   console.log('Você se esquivou');
-  console.log(`Voçê tem esses itens \n `)
+  console.log(`Voçê tem esses itens \n ${r3}`)
 
   if(steve.pocao >= 1){
-    console.log(`Você tem ${steve.pocao} poções de vida. Deseja utiliza-la? \n 1.Sim \n 2.Não`);
+    console.log(`Você tem 1.${steve.pocao} poções de vida e um arco. Deseja utiliza-la qual? \n 1.Poção  \n 2.Arco \n 3.Não ultilizar `);
     let rep = Number(ler());
 
 await funcoes.contar(0);
@@ -660,20 +661,25 @@ if(rep == 1){
     console.log('Você ganhou mais 45 de vida\n Voltando para batalha');
 
 }
-else{
-    console.log('Voltand para a batalha.');
-}
-
-}
 
 else if(rep == 2){
+    enderman.vida = enderman.vida - Math.floor(Math.randoom()* 35) 
+}
+
+else{
+    console.log('Voltando para a batalha.');
+}
+
+}
+
+else if(rep == 3){
     console.log('Voltando Para a batalha.');
 }
 
 }
 
 else{
-    console.log('opção invalida, escolha de 1 ou 2!')
+    console.log('opção invalida, escolha de 1 ou 2!');
 }
 
 }
@@ -681,7 +687,7 @@ else{
 else if(escolha == 3 ){
 console.log('você escolheu fugir :(');
 
-console.log('O esqueleto te mata, Covarde\n');
+console.log('O enderman te mata, Covarde\n');
 
 i = -1;
 op = 0;
