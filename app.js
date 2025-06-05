@@ -10,9 +10,7 @@ let steve = {
     escudo: 0,
     pocao: 0
 }
-//itens 
-//1 =poção de vida
-//2 = golden apple
+
 let zumbi = {
     vida: 125,
     dano: 0
@@ -691,6 +689,9 @@ else{
     console.log('Voltando para a batalha.');
 }
 
+}
+else{
+    console.log('Voceê abriu o inventário, mas como ele está vazio, você volta para a batalha');
 }
 
 }
