@@ -413,7 +413,7 @@ else if(opcao == 3){
       }
 
       if (esqueleto.vida <= 0) {//menu
-        console.log('parabéns! você derrotou o esqueleto, e um ganhou o arco, vamos continuar a nossa jornada');
+        console.log('parabéns! você derrotou o esqueleto, e ganhou o arco, vamos continuar a nossa jornada');
         console.log('')
         console.log('Agora você pode escolher 2 entre essas 3 opções:\n 1.armadura de diamente \n 2. Espada de diamante \n3. Cura Total');
         let r1 = Number(ler());
@@ -519,14 +519,15 @@ if(rep == 1){
     console.log('Você ganhou mais 45 de vida\n Voltando para batalha');
 
 }
+
+else if(rep == 2){
+    console.log('Voltando Para a batalha.');
+}
+
 else{
     console.log('Voltando para a batalha.');
 }
 
-}
-
-else if(rep == 2){
-    console.log('Voltando Para a batalha.');
 }
 
 }
