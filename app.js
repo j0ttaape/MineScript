@@ -42,7 +42,12 @@ for (let cont = 1; cont != 0; cont++){
 
     if (op == 0){
     await funcoes.contar(1);
-    console.log('Você deseja: \n 1. Continuar \n 2.Desistir');
+    console.log(`----------------------
+- O que você deseja? -
+- 1. Batalhar        -
+- 2. Esquivar        -
+- 3. Desistir        -
+----------------------\n`);
      opcao = Number(ler());
 
     await funcoes.contar(0);
@@ -74,17 +79,20 @@ await funcoes.contar(5);
     await funcoes.contar(1);
    for(let h = 1; h != 0; h ++){
          if(escolha > 3 || escolha < 1){
-                     console.log('opção invalida \n escolha novamente')
-                     escolha = Number(ler());
+      console.log('opção invalida \n escolha novamente')
+    escolha = Number(ler());
 
-                 }else{
-                    break;
-                 }
+     }
+
+     else{
+     break;
+     }
 
    }
      if(escolha == 1){
-       console.log('Você escolheu Batalhar.');
-       console.log();
+       console.log(`---------------------------
+ - Você escolheu Batalhar -
+---------------------------\n`);
 
        steve.dano = funcoes.danoSteve(steve);
        zumbi.vida = zumbi.vida - steve.dano;
@@ -363,8 +371,9 @@ else if(opcao == 3){
     await funcoes.contar(1);
     
     if (escolha == 1) { // batalhar
-      console.log('você escolheu batalhar');
-      console.log();
+      console.log(`---------------------------
+- Você escolheu Batalhar -
+---------------------------\n`);
 
       // steve atacando o esqueleto
       steve.dano = funcoes.danoSteve(steve);
@@ -572,8 +581,10 @@ else if(opcao ==4){
             await funcoes.contar(1);
 
              if (escolha == 1) { // batalhar
-      console.log('você escolheu batalhar');
-      console.log();
+
+                console.log(`---------------------------
+ - Você escolheu Batalhar -
+---------------------------\n`);
 
       // steve atacando o enderman
       
