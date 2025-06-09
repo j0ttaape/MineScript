@@ -10,25 +10,19 @@ let steve = {
     escudo: 0,
     pocao: 0
 }
-//itens 
-//1 =poção de vida
-//2 = golden apple
+
 let zumbi = {
-    vida: 1,
+    vida: 125,
     dano: 0
 
 }
 
 let esqueleto = {
-    vida: 1,
+    vida: 105,
     dano:0
 }
 
-let creeper = {
-    vida: 150,
-    dano: 0
 
-}
 
 let enderman = {
     vida: 200,
@@ -38,6 +32,7 @@ let enderman = {
 
 let opcao= 0
 let op = 0;
+
 //inicio do Jogo
 console.log(`\nBem-vindo você está no MineScript.
     \nSua missão é derrotar os mobs e enfrentar o boss final.
@@ -47,7 +42,12 @@ for (let cont = 1; cont != 0; cont++){
 
     if (op == 0){
     await funcoes.contar(1);
-    console.log('Você deseja: \n 1. Continuar \n 2.Desistir');
+    console.log(`----------------------
+- O que você deseja? -
+- 1. Batalhar        -
+- 2. Esquivar        -
+- 3. Desistir        -
+----------------------\n`);
      opcao = Number(ler());
 
     await funcoes.contar(0);
@@ -79,17 +79,20 @@ await funcoes.contar(5);
     await funcoes.contar(1);
    for(let h = 1; h != 0; h ++){
          if(escolha > 3 || escolha < 1){
-                     console.log('opção invalida \n escolha novamente')
-                     escolha = Number(ler());
+      console.log('opção invalida \n escolha novamente')
+    escolha = Number(ler());
 
-                 }else{
-                    break;
-                 }
+     }
+
+     else{
+     break;
+     }
 
    }
      if(escolha == 1){
-       console.log('Você escolheu Batalhar.');
-       console.log();
+       console.log(`---------------------------
+ - Você escolheu Batalhar -
+---------------------------\n`);
 
        steve.dano = funcoes.danoSteve(steve);
        zumbi.vida = zumbi.vida - steve.dano;
@@ -368,8 +371,9 @@ else if(opcao == 3){
     await funcoes.contar(1);
     
     if (escolha == 1) { // batalhar
-      console.log('você escolheu batalhar');
-      console.log();
+      console.log(`---------------------------
+- Você escolheu Batalhar -
+---------------------------\n`);
 
       // steve atacando o esqueleto
       steve.dano = funcoes.danoSteve(steve);
@@ -418,7 +422,7 @@ else if(opcao == 3){
       }
 
       if (esqueleto.vida <= 0) {//menu
-        console.log('parabéns! você derrotou o esqueleto, vamos continuar a nossa jornada');
+        console.log('parabéns! você derrotou o esqueleto, e ganhou o arco, vamos continuar a nossa jornada');
         console.log('')
         console.log('Agora você pode escolher 2 entre essas 3 opções:\n 1.armadura de diamente \n 2. Espada de diamante \n3. Cura Total');
         let r1 = Number(ler());
@@ -513,8 +517,8 @@ else if(opcao == 3){
   console.log('Você se esquivou');
 
   if(steve.pocao >= 1){
-console.log(`Você tem ${steve.pocao} poções de vida. Deseja utiliza-la?\n 1.Sim\n 2.Não`);
-let rep = Number(ler());
+    console.log(`Você tem ${steve.pocao} poções de vida. Deseja utiliza-la? \n 1.Sim \n 2.Não`);
+    let rep = Number(ler());
 
 await funcoes.contar(0);
 if(rep == 1){
@@ -524,14 +528,15 @@ if(rep == 1){
     console.log('Você ganhou mais 45 de vida\n Voltando para batalha');
 
 }
-else{
-    console.log('Voltand para a batalha.');
-}
-
-}
 
 else if(rep == 2){
     console.log('Voltando Para a batalha.');
+}
+
+else{
+    console.log('Voltando para a batalha.');
+}
+
 }
 
 }
@@ -553,14 +558,185 @@ op = 0;
 }
 
 
-
-
-
-
 }
 
 //começo contra o enderman
 else if(opcao ==4){
+<<<<<<< HEAD
+=======
+    console.log('Após ganhar do esqueleto vocêr tem a missão de achar um enderman e derrotalo para conseguir o olho dele e ir para o The End');
+    console.log()
+
+    await funcoes.contar(0);
+
+    console.log('Você encontra um enderman, mas cuidado, ele se teleporta e te bate quando voce menos espera');
+
+    await funcoes.contar(0);
+    console.log();
+        console.log('Ele te avistou, ele está vindo te atacar');
+
+
+      for (let i = 1; i != 0; i++) {
+            console.log('Você tem algumas opções: \n 1. Batalhar \n 2. Esquivar \n 3. Fugir:');
+            let  escolha = Number(ler());
+
+            await funcoes.contar(1);
+
+             if (escolha == 1) { // batalhar
+
+                console.log(`---------------------------
+ - Você escolheu Batalhar -
+---------------------------\n`);
+
+      // steve atacando o enderman
+      
+      steve.dano = funcoes.danoSteve(steve);
+
+      if(steve.dano <= 8){
+
+        console.log('O enderman se teleportou e você errou o ataque nele :(');
+
+      }
+
+      else{
+      enderman.vida = enderman.vida - steve.dano;
+    }
+      
+      if (enderman.vida <= 0) {
+        enderman.vida = 0;
+      }
+
+
+      await funcoes.contar(1);
+      if (steve.espada == 0 && steve.dano >= 15) { // se for espada de couro
+        console.log('Caramba, você deu um dano critico!');
+      } 
+      else if (steve.espada == 1 && steve.dano >= 28) { // se for espada de ferro
+        console.log('Caramba, você deu um dano critico!')
+      }
+
+      await funcoes.contar(2);
+
+      console.log(`você atacou o enderman e deu ${steve.dano} de dano.\nAgora o enderman tem ${enderman.vida} de vida `);
+
+      // enderman atacando o steve
+      enderman.dano = funcoes.danoEnderman(steve, enderman);
+
+      await funcoes.contar(1);
+
+      if (enderman.dano <= 9) {
+        console.log('eita, o enderman errou o ataque!');
+        console.log();
+      } 
+      
+      else {
+        steve.vida = steve.vida - enderman.dano;
+
+        if (steve.vida <= 0) {
+          steve.vida = 0;
+        }
+
+        console.log(`Cuidado, o enderman acertou o ataque. \n Ele te deu ${enderman.dano} de dano e você ficou com ${steve.vida} de vida `);
+      }
+
+      await funcoes.contar(1);
+
+      if (steve.vida <= 0) {
+        console.log('Sinto muito, você morreu e agora terá que refazer o jogo :(');
+        i = -1;
+        enderman.vida = 85;
+        esqueleto.vida = 105;
+        zumbi.vida = 125;
+        steve.vida = 75;
+        op = 0;
+      }
+
+      if (enderman.vida <= 0) {//menu
+        console.log('parabéns! você derrotou o enderman, nossa jornada acaba aqui');
+        console.log('')
+       
+
+        i=-1
+        cont = -1
+      }
+       
+ 
+ op = 0;
+
+   }
+
+   else if(escolha == 2){
+    console.log('você se esquivou, agora você tem as opções: \n1.voltar para batalha \n2. abrir o inventario\n 3.Usar Arco');
+    let res = Number(ler());
+
+ 
+
+    await funcoes.contar(1);
+    if(res == 1){
+        console.log('voltando para batalha!');
+        console.log();
+    }
+    else if(res == 2){
+
+  console.log('Abrindo o inventário');
+
+  if(steve.pocao >= 1){
+    console.log(`Você tem 1.${steve.pocao} poções de vida e um arco. Deseja utiliza-la qual? \n 1.Poção\n 2.Voltar para a batalha `);
+    let rep = Number(ler());
+
+await funcoes.contar(0);
+
+if(rep == 1){
+    steve.pocao = steve.pocao - 1;
+    steve.vida = steve.vida + 45;
+
+    console.log('Você ganhou mais 45 de vida\n Voltando para batalha');
+
+}
+
+else if(rep == 2){
+console.log('Voltando para a batalha');
+
+}
+
+else{
+    console.log('Voltando para a batalha.');
+}
+
+}
+else{
+    console.log('Voceê abriu o inventário, mas como ele está vazio, você volta para a batalha');
+}
+
+}
+
+else if(res == 3){
+    steve.dano = Math.floor(Math.random()* 35);
+    enderman.vida = enderman.vida - steve.dano;
+    
+    console.log(`Você acerta uma flechada no enderman e retira ${steve.dano} de vida, deixando ele com ${enderman.vida} de vida`);
+}
+
+else{
+    console.log('Opção inválida, Voltando para a batalha');
+}
+
+}
+
+else if(escolha == 3 ){
+console.log('você escolheu fugir :(');
+
+console.log('O enderman te mata, Covarde\n');
+
+i = -1;
+op = 5 ;
+}
+
+      }
+
+
+
+>>>>>>> 91df373210bf25fe0859f2e062dbfd47bb8b2023
 
 //apresentacao
 

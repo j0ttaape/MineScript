@@ -63,21 +63,21 @@ export function danoEnderman(steve, enderman) {
 
   if (steve.armadura == 0) {
     if (steve.escudo == 1) {
-      enderman.dano = Math.floor(Math.random() * (30 / 2))
+      enderman.dano = Math.floor(Math.random() * (45 / 2))
     }
 
     else{
-    enderman.dano = Math.floor(Math.random() * 30)}
+    enderman.dano = Math.floor(Math.random() * 45)}
   }
 
   else if (steve.armadura == 1) {
 
     if (steve.escudo == 1) {
-      enderman.dano = Math.floor(Math.random() * (20 / 2))
+      enderman.dano = Math.floor(Math.random() * (35 / 2))
     }
 
     else{
-    enderman.dano = Math.floor(Math.random() * 20)
+    enderman.dano = Math.floor(Math.random() * 35)
 }
 
   }
@@ -85,11 +85,11 @@ export function danoEnderman(steve, enderman) {
   else if (steve.armadura == 2) {
 
     if (steve.escudo == 1) {
-      enderman.dano = Math.floor(Math.random() * (10 / 2))
+      enderman.dano = Math.floor(Math.random() * (25 / 2))
     }
 
     else{
-    enderman.dano = Math.floor(Math.random() * 10)
+    enderman.dano = Math.floor(Math.random() * 25)
 }
   }
   return enderman.dano
@@ -130,4 +130,3 @@ function sleep(milisegundos) {
     setTimeout(ok, milisegundos);
   })
 }
-
