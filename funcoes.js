@@ -1,4 +1,4 @@
-import prompt from "prompt-sync"
+import prompt from 'prompt-sync'
 let ler = prompt();
 
 // -- Funções do Zumbi --
@@ -130,3 +130,47 @@ function sleep(milisegundos) {
     setTimeout(ok, milisegundos);
   })
 }
+
+let opcao= 0
+
+
+export function apresentacaoTexto(opcao){
+
+  console.log(`----------------------
+    - O que você deseja? -
+    - 1. Batalhar        -
+    - 2. Esquivar        -
+    - 3. Desistir        -
+    ----------------------\n`);
+         opcao = Number(ler());
+
+         return opcao;
+  }
+
+  export function obterOpcoes(){
+    console.log('Você tem algumas opções: \n 1. Batalhar \n 2. Esquivar \n 3. Fugir:');
+    let escolha = Number(ler());
+    return escolha;
+  }
+
+  export function  opcaoInvalida(escolha){
+    for(let h = 1; h != 0; h ++){
+      if(escolha > 3 || escolha < 1){
+   console.log('opção invalida \n escolha novamente')
+ escolha = Number(ler());
+
+  }
+
+  else{
+  break;
+  }
+
+}
+return escolha;
+  }
+
+  export function obterOpcoesBatalhas(){
+    console.log('você se esquivou, agora você tem as opções: \n1.voltar para batalha \n2. abrir o inventario');
+        let res = Number(ler());
+        return res;
+  }

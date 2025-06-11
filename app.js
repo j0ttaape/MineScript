@@ -42,13 +42,8 @@ for (let cont = 1; cont != 0; cont++){
 
     if (op == 0){
     await funcoes.contar(1);
-    console.log(`----------------------
-- O que você deseja? -
-- 1. Batalhar        -
-- 2. Esquivar        -
-- 3. Desistir        -
-----------------------\n`);
-     opcao = Number(ler());
+    
+    opcao = funcoes.apresentacaoTexto();
 
     await funcoes.contar(0);
     if(opcao == 1){
@@ -73,22 +68,12 @@ await funcoes.contar(5);
     //Batalha Com o Zumbi
 
     for(let i = 1; i != 0; i ++){
-    console.log('Você tem algumas opções: \n 1. Batalhar \n 2. Esquivar \n 3. Fugir:');
-    let escolha = Number(ler());
+    let escolha=funcoes.obterOpcoes();
 
     await funcoes.contar(1);
-   for(let h = 1; h != 0; h ++){
-         if(escolha > 3 || escolha < 1){
-      console.log('opção invalida \n escolha novamente')
-    escolha = Number(ler());
+    
+    funcoes.opcaoInvalida(escolha)
 
-     }
-
-     else{
-     break;
-     }
-
-   }
      if(escolha == 1){
        console.log(`---------------------------
  - Você escolheu Batalhar -
@@ -316,8 +301,7 @@ await funcoes.contar(5);
     }
     
     else if(escolha == 2){
-        console.log('você se esquivou, agora você tem as opções: \n1.voltar para batalha \n2. abrir o inventario');
-        let res = Number(ler());
+        let res=funcoes.obterOpcoesBatalhas();
 
         await funcoes.contar(1);
         if(res == 1){
@@ -365,8 +349,7 @@ else if(opcao == 3){
   console.log();
 
   for (let i = 1; i != 0; i++) {
-    console.log('Você tem algumas opções: \n 1. Batalhar \n 2. Esquivar \n 3. Fugir:');
-    let  escolha = Number(ler());
+    let escolha=funcoes.apresentacaoTexto();
 
     await funcoes.contar(1);
     
@@ -562,8 +545,7 @@ op = 0;
 
 //começo contra o enderman
 else if(opcao ==4){
-<<<<<<< HEAD
-=======
+
     console.log('Após ganhar do esqueleto vocêr tem a missão de achar um enderman e derrotalo para conseguir o olho dele e ir para o The End');
     console.log()
 
@@ -733,10 +715,6 @@ op = 5 ;
 }
 
       }
-
-
-
->>>>>>> 91df373210bf25fe0859f2e062dbfd47bb8b2023
 
 //apresentacao
 
